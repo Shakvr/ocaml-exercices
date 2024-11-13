@@ -19,6 +19,3 @@ let timer (time : t_time) : unit =
 
 
 ;;
-
-let negro = timer {hour = ref 23; minute = ref 59; second = ref 59};;
-printf.printf negro;;
