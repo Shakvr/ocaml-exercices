@@ -55,22 +55,64 @@ find_val ([|1; 2; 3; 4; 5|] , 2);;
 (* exo 93 *)
 
 
-let dice_rolls (   ) =
-  let cpt : int ref = ref 0 in 
-  let values_tab   = arr.make 
-  let throw_result : int = random.int 21
-  while  throw_result <> 20 do
-    let throw_result : int = random.int 21
-    cpt := !cpt + 1 
-    values_tabe.() <- 
+(* let dice_rolls () : int * int array =
+  let l_rolls = ref (Random.int 21)
+  and tab = Array.make (20, 0)  
+  and l_i = ref 0
+  and l_cpt = ref 0 in
+  while !l_rolls <> 20 do
+    l_cpt := !l_cpt + 1;
+    tab.(!l_rolls - 1) <- tab.(!l_rolls - 1) + 1;
+    l_rolls := Random.int 21
+  done;
+  (!l_cpt, tab)
+;;
+
+dice_rolls() ;;
+ *)
 
 
 
 
 
-(* 
-    - trouver  nombres de lancés 
-    - trouver pour chaque valeur qu'on a, le nombres de fois qu'on l'a eu 
-     *)
 
+
+ 
+
+ let dice_20_faces() : int array * int = 
+  let l_fice : int_array = arr_make 20 0 
+  and l_random_face : int ref = ref 0
+  and l_nb_rolls : int  ref = ref 0 in
+  while l_dice.(19) = 0 do 
+    ( 
+      l_random_face := random.int 20;
+      l_dice.(!l_random_face) <- l_dice.(!l_random_face) +1 ;
+      l_nb_rolls := ! l_nb_rolls +1 
+
+    );
+  done 
+
+  (l_dice , !l_nb_rolls)
+
+;;
+
+
+
+
+
+(* exo 94 *)
+
+
+let shift_left (p_tab : int array) : int array = 
+  let l_a = p_tab.(0) 
+  and l_length = Array.length p_tab - 1 in
+  for i = 0 to l_length - 1 do 
+    p_tab.(i) <- p_tab.(i + 1)
+  done;
+  p_tab.(l_length) <- l_a;
+  p_tab
+;;
+
+(* Exemple d'appel de la fonction *)
+shift_left [|1; 2; 3; 4; 5|];;
 
