@@ -1,3 +1,6 @@
+# use "AP1array.ml" ;;
+
+
 (* exo 90*)
 
 let polynome (p_poly : float array) (p_x : float) : float = (* prototype fonction *) 
@@ -115,4 +118,35 @@ let shift_left (p_tab : int array) : int array =
 
 (* Exemple d'appel de la fonction *)
 shift_left [|1; 2; 3; 4; 5|];;
+
+
+(*exo 98*)
+let init_fortune(p_nb : int): int array =
+let l_fortune  : int array = arr_make(p_nb , 1000)in
+l_fortune 
+;;
+
+let valid_choice_number (p_choice_number: int array) : bool =
+  let l_is_valid : bool ref = ref true in 
+  (
+    for i = 0 to Array.length (p_choice_number) - 1 do
+      if p_choice_number.(i) < 0 ||  p_choice_number.(i)>36 then
+        l_is_valid := false
+    done ;
+    !l_is_valid 
+  )
+  ;;
+let  valid_choice_bet(p_bet , p_fortune : int array * int array  ) : bool =
+  let l_is_valid : bool ref = ref true in 
+  (
+    for i = 0 to Array.length (p_bet) - 1 do 
+      if p_bet.(i) < 0 || p_bet.(i) > p_fortune.(i) then 
+        l_is_valid := false 
+    done ;
+    !l_is_valid
+  )
+  ;;
+
+let compute_bet_per_number() : =
+
 
